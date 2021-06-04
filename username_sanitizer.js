@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    if (window.location.href.includes('signup')) {
+    if (window.location.href.includes('/signup')) {
         username_sanitizer();
     }
 });
@@ -13,15 +13,14 @@ var delay = (function() {
 })();
 
 function username_sanitizer() {
-    sel_input_field = '#id_username';
-    rx = /^[a-z0-9_\-]*$/;
+    var sel_input_field = '#id_username';
+    var rx = /^[a-z0-9_\-]*$/;
     $(sel_input_field).on('keyup', function() {
         delay(function() {
-            el = $('.form-group.field-username').find('.help-block');
-            val = $(sel_input_field).val();
+            var el = $('.form-group.field-username').find('.help-block');
+            var val = $(sel_input_field).val();
             remove_error_message(el);
             if (rx.test(val) == false) {
-                console.log('add message');
                 add_error_message(
                     el, '* please use only digits, lower case letters, hyphens or underscores'
                 );

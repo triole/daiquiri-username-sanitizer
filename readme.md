@@ -6,23 +6,19 @@ The username sanitizer provides a Javascript that only allows user names fitting
 
 ## How to install?
 
-1. Copy the js file into your daiquiri app. Make sure the folder structure is correct to be able to use it later on. It has to go to your app folder into `static/core/js/`
+1. Copy the js file into your daiquiri app.
 
-    Using docker you could do something like
+    Make sure the folder structure is correct to be able to use it later on. It has to go into your app folder to `static/core/js/username_sanitizer.js`
 
-    ```shell
-    docker cp username_sanitizer.js  dqdocker:/home/dq/app/static/core/js/
-    ```
+1. Load the copied Javascript into the page that displays the sighnup form.
 
-2. Load the copied javascript into your html form.
-
-    For example by adding the following to your footer `app/templates/core/base_footer.html`.
+    For example by adding the snippet below to even this page. If you don't have a signup page template you could also put it into your footer `app/templates/core/base_footer.html`.
 
     ```html
     <script src="/static/core/js/username_sanitizer.js"></script>
     ```
 
-3. Finally run collect static
+1. Finally run collect static
 
     ```shell
     python3 manage.py collectstatic
